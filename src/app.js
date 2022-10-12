@@ -3,6 +3,9 @@ import mongoose from "mongoose";
 import authRoute from "./routes/authRoute.js";
 import cors from 'cors'
 import { DB_CONNECT } from "./utils/constants.js";
+import dotenv from 'dotenv'
+
+dotenv.config();
 
 var app = express()
 
@@ -20,5 +23,5 @@ const PORT=8080;
 app.use(express.json())
 app.use('/auth',authRoute);
 
-app.listen(PORT,()=>{console.log("hello a^2");})
+app.listen(PORT||process.env.PORT,()=>{console.log("hello a^2");})
 
