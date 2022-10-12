@@ -1,7 +1,6 @@
 import { validationResult } from "express-validator";
 import bcrypt from 'bcrypt'
 import user from "../../models/user.js";
-import {JWT_TOKEN_SECRET} from "../../utils/constants.js"
 import Jwt from 'jsonwebtoken'
 
   const Register = async(req,res) => { 
@@ -37,7 +36,7 @@ import Jwt from 'jsonwebtoken'
                 verified:false
             })
 
-            const token=Jwt.sign({userId:result._id},JWT_TOKEN_SECRET);
+            const token=Jwt.sign({userId:result._id},process.env.JWT_TOKEN_SECRET);
 
             res.json({status:"201",message:"user registered",result,"userId":result._id,"token":token});
         } catch (error) {

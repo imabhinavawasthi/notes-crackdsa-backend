@@ -2,7 +2,6 @@ import { validationResult } from "express-validator";
 import user from "../../models/user.js";
 import bcrypt from 'bcrypt'
 import Jwt from 'jsonwebtoken'
-import { JWT_TOKEN_SECRET } from "../../utils/constants.js";
 
 const Login = async(req,res) => { 
 
@@ -34,7 +33,7 @@ const Login = async(req,res) => {
 
         }
 
-        const token=Jwt.sign({userId:curruser._id},JWT_TOKEN_SECRET);
+        const token=Jwt.sign({userId:curruser._id},process.env.JWT_TOKEN_SECRET);
 
         res.json({status:"201",message:"logged in",userId:curruser._id,token:token,name:curruser.name});
     }

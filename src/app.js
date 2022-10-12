@@ -2,7 +2,6 @@ import express from "express";
 import mongoose from "mongoose";
 import authRoute from "./routes/authRoute.js";
 import cors from 'cors'
-import { DB_CONNECT } from "./utils/constants.js";
 import dotenv from 'dotenv'
 
 dotenv.config();
@@ -11,7 +10,7 @@ var app = express()
 
 app.use(cors())
 
-mongoose.connect(DB_CONNECT, {
+mongoose.connect(process.env.DB_CONNECT, {
     useNewURLParser: true,
     useUnifiedTopology: true,
   },6000000)
