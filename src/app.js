@@ -22,6 +22,6 @@ mongoose.connect(DB_CONNECT, {
 const PORT=8080;
 app.use(express.json())
 app.use('/auth',authRoute);
-
+app.use('/',(req,res)=>{res.send({hi:"hello"})})
 app.listen(PORT||process.env.PORT,()=>{console.log("hello a^2");})
 
