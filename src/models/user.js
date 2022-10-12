@@ -21,9 +21,23 @@ const userSchema=mongoose.Schema({
         required:true
     }
     ,
+    todos:[
+        {
+            type:mongoose.Schema.Types.ObjectId,
+            ref:"todo"
+        }
+    ]
+
+    ,
+
     verified:{
         type:Boolean,
         required:true
+    }
+    ,
+    date:{
+        type:Date,
+        default:Date.now
     }
 })
 

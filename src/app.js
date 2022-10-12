@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import authRoute from "./routes/authRoute.js";
 import cors from 'cors'
 import dotenv from 'dotenv'
+import protectedRoute from "./routes/protectedRoute.js";
+import userMiddleware from "./middlewares/userMiddleware.js";
 
 dotenv.config();
 
@@ -20,6 +22,7 @@ mongoose.connect(process.env.DB_CONNECT, {
 
 app.use(express.json())
 app.use('/auth',authRoute);
-app.use('/',(req,res)=>{res.send({hi:"hello"})})
+app.use('/user',userMiddleware , protectedRoute);
+// app.use('/',(req,res)=>{res.send({hi:"hello"})})
 app.listen(process.env.PORT||8080,()=>{console.log("hello a^2");})
 
