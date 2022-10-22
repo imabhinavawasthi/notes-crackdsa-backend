@@ -38,6 +38,10 @@ const todoSchema=mongoose.Schema({
         type:Boolean,
         default:false
     }
+    ,
+    platform:{
+        type:String
+    }
 })
 
 export default mongoose.model("todo",todoSchema);
