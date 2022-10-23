@@ -13,7 +13,6 @@ export const createTodo=async(req,res)=>{
             topic:topic,
             platform:platform
         })
-
         if(result){
             // console.log(req.userId);
             const curruser=await user.findOneAndUpdate({
@@ -24,7 +23,7 @@ export const createTodo=async(req,res)=>{
             }
             )
             // console.log(curruser);
-            res.json({message:"todo created"})
+            res.json({message:"todo created","id":result._id.toString()})
         }
 
     } catch (error) {
