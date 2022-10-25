@@ -20,7 +20,7 @@ import Jwt from 'jsonwebtoken'
                 email:email
             }]
         })  
-        
+        // console.log(userExists);
         if(userExists){
             res.json({"message":"user already exists"});
             return;

@@ -19,7 +19,7 @@ export const createTodo=async(req,res)=>{
                 _id:req.userId
             },
             {
-                $push:{todos:result}
+                $push:{todos:result} 
             }
             )
             // console.log(curruser);

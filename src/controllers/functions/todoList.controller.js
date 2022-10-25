@@ -8,6 +8,7 @@ export const todoList=async(req,res)=>{
         .exec()
 
         return res.json({message:"todo list",data:list})
+        
 
 
     } catch (error) {
