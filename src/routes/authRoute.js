@@ -1,4 +1,5 @@
 import express from "express"
+import checkUser from "../controllers/auth/checkUser.controller.js";
 import forgotPassword from "../controllers/auth/forgotPassword.controller.js";
 import Login from "../controllers/auth/Login.controller.js";
 import Register from "../controllers/auth/Register.controller.js";
@@ -15,5 +16,6 @@ authRoute.post("/login",LoginSchema,Login)
 authRoute.post("/otpsent",OTPSchema,sendOtp)
 authRoute.post("/otpverify",OTPSchema,verifyOtp)
 authRoute.post("/forgotpassword",OTPSchema,forgotPassword)
+authRoute.post("/checkuser",checkUser); 
 
 export default authRoute;
