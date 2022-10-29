@@ -50,7 +50,7 @@ const sendOtp = async (req, res) => {
                 // console.log(err);
                 res.send(err);
             }
-            else {
+            else { 
                 res.send({ "message": "otp sent", data })
             }
         })

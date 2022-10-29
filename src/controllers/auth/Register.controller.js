@@ -3,6 +3,7 @@ import bcrypt from 'bcrypt'
 import user from "../../models/user.js";
 import Jwt from 'jsonwebtoken'
 
+
   const Register = async(req,res) => { 
 
     const error=validationResult(req)
